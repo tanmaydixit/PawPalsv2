@@ -33,4 +33,5 @@ public class ListItem {
     public String getDogImage() {
         return dogImage;
     }
+
 }

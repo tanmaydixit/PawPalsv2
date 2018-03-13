@@ -53,18 +53,19 @@ public class MainActivity extends AppCompatActivity
                         lastFedTimetemp=child.child("dateTime").getValue(String.class);
                     }
                         dogImagetemp = child.child("dogUrl").getValue(String.class);
-                    }
+
                     ListItem listItem=new ListItem(dogNametemp,dogIdtemp,lastFedTimetemp,dogImagetemp);
                     listItems.add(listItem);
                 }
 
+                adapter=new MyAdapter(listItems,this);
+                recyclerView.setAdapter(adapter);
+                }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-        adapter=new MyAdapter(listItems,this);
-        recyclerView.setAdapter(adapter);
 
 
 

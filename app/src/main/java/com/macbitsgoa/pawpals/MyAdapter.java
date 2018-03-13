@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-    public MyAdapter(List<ListItem> listItem, MainActivity mainActivity) {
+    public MyAdapter(List<ListItem> listItem, ValueEventListener mainActivity) {
         this.listItems = listItem;
     }
 
