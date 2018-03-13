@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1077723103431-v4nnvvfm6p8kq14h56l3uo2pbea90ae7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.macbitsgoa.pawpals",
+            "certificate_hash": "033147c62cb46ab274eef8258868513ce64bae3b"
+          }
+        },
+        {
           "client_id": "1077723103431-p7f9h5m46tibtrtuf9s59qrpq1ncba5s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
