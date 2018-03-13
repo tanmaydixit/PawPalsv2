@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity
 
 
                     for(DataSnapshot subchild:child.child("feed").getChildren()){
-                        lastFedTimetemp=child.child("dateTime").getValue(String.class);
+                        lastFedTimetemp=subchild.child("dateTime").getValue(String.class);
                     }
                         dogImagetemp = child.child("dogUrl").getValue(String.class);
 

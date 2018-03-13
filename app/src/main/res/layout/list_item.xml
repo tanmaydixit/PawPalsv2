@@ -23,29 +23,29 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="70"
+            android:orientation="vertical"
+            android:layout_weight="60"
             android:weightSum="60">
             <TextView
-                android:gravity="center"
-                android:layout_weight="20"
-                android:id="@+id/dogId"
-                android:text="Dog ID"
-                android:layout_width="0dp"
-                android:layout_height="match_parent" />
-            <TextView
-                android:gravity="center"
-                android:layout_weight="40"
+                android:fontFamily="sans-serif"
+                android:layout_weight="35"
                 android:text="Dog Name"
                 android:id="@+id/dogName"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:layout_height="match_parent" />
+                android:layout_height="0dp" />
+            <TextView
+                android:layout_weight="25"
+                android:id="@+id/dogId"
+                android:text="Dog ID"
+                android:layout_height="0dp"
+                android:layout_width="match_parent" />
+
         </LinearLayout>
         <TextView
-            android:gravity="center"
-            android:layout_weight="10"
+            android:gravity="center_horizontal"
+            android:layout_weight="20"
             android:text="Time"
             android:id="@+id/lastFedTime"
             android:layout_width="0dp"
