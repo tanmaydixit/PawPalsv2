@@ -3,7 +3,8 @@ package com.macbitsgoa.pawpals;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,16 +14,64 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    String dogNametemp,dogIdtemp,lastFedTimetemp,dogImagetemp;
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
+    List<ListItem> listItems;
 
+    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("dogs");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        listItems=new ArrayList<>();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot child:dataSnapshot.getChildren()){
+                    dogIdtemp= child.child("dogId").getValue(String.class);
+                    dogNametemp= child.child("dogName").getValue(String.class);
+
+
+                    for(DataSnapshot subchild:child.child("feed").getChildren()){
+                        lastFedTimetemp=subchild.child("dateTime").getValue(String.class);
+                    }
+                        dogImagetemp = child.child("dogUrl").getValue(String.class);
+
+                    ListItem listItem=new ListItem(dogNametemp,dogIdtemp,lastFedTimetemp,dogImagetemp);
+                    listItems.add(listItem);
+                }
+
+                adapter=new MyAdapter(listItems,this);
+                recyclerView.setAdapter(adapter);
+                }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,8 +81,6 @@ public class MainActivity extends AppCompatActivity
 //                        .setAction("Action", null).show();
                 Intent intent = new Intent(MainActivity.this,AddFeedActivity.class);
                 startActivity(intent);
-
-
             }
         });
 
@@ -45,6 +92,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
     }
 
     @Override
@@ -103,4 +153,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
