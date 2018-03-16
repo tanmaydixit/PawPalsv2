@@ -59,6 +59,8 @@ public class FeedHistoryActivity extends AppCompatActivity {
                             FeederInfoItem feederInfoItem=new FeederInfoItem(feederName,foodItem,feedingTime);
                             feederInfoItemList.add(feederInfoItem);
                         }
+                        adapter2=new MyAdapter2(feederInfoItemList,FeedHistoryActivity.this);
+                        recyclerView2.setAdapter(adapter2);
                         break;
                     }
                 }
@@ -76,4 +78,4 @@ public class FeedHistoryActivity extends AppCompatActivity {
 /*
 * Please make an onclicklistener for the previous recycler view and transfer 3 strings transferredName,transferredId,transferredImage
 *
-* */
+*/
