@@ -22,6 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Intent.ACTION_SEND;
+import static android.content.Intent.EXTRA_TEXT;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     String dogNametemp,dogIdtemp,lastFedTimetemp,dogImagetemp;
@@ -29,7 +32,9 @@ public class MainActivity extends AppCompatActivity
     RecyclerView.Adapter adapter;
     List<ListItem> listItems;
 
-    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("dogs");
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +43,10 @@ public class MainActivity extends AppCompatActivity
         recyclerView=(RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("dogs");
         listItems=new ArrayList<>();
-
+        //databaseReference.keepSynced(true);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -135,17 +141,36 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_home) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_emergency_contacts) {
 
-        } else if (id == R.id.nav_manage) {
+            startActivity(new Intent(MainActivity.this,EmergencyContactsActivity.class));
+
+        } else if (id == R.id.nav_feed_dog){
+
+            startActivity(new Intent(MainActivity.this,AddFeedActivity.class));
+
+        } else if (id == R.id.nav_report_emergency) {
+            //TODO Make activity Report Emergency
+            //startActivity(new Intent(MainActivity.this,ReportEmergencyActivity.class));
+
+        } else if (id == R.id.nav_about_epac) {
+            //TODO Make activity About Epac
+
+            //startActivity(new Intent(MainActivity.this,AboutEpacActivity.class));
+
+        } else if (id == R.id.nav_about_mac) {
+
+            startActivity(new Intent(MainActivity.this,AboutMAC.class));
 
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            Intent intent = new Intent();
+            intent.setAction(ACTION_SEND);
+            // TODO Replace string message_app_share with string for Paw Pals
+            intent.putExtra(EXTRA_TEXT, getString(R.string.message_app_share));
+            intent.setType("text/plain");
+            startActivity(Intent.createChooser(intent, "Share app url via ... "));
 
         }
 
