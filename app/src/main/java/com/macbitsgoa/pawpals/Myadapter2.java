@@ -37,7 +37,9 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
         holder.textViewFeederName.setText(listItem2.getFeederName());
         holder.textViewFoodItem.setText(listItem2.getFoodItem());
         holder.textViewTimeOfFeeding.setText(listItem2.getFeedingTime());
+
     }
+
     @Override
     public int getItemCount() {
         return listItem2s.size();
