@@ -16,10 +16,10 @@ import java.util.List;
  */
 
 public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
-    private List<ListItem2> listItem2s;
+    private List<FeederInfoItem> listItem2s;
     private Context context;
 
-    public MyAdapter2(List<ListItem2> listItem2s, Context context) {
+    public MyAdapter2(List<FeederInfoItem> listItem2s, Context context) {
         this.listItem2s = listItem2s;
         this.context = context;
     }
@@ -33,10 +33,10 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final ListItem2 listItem2=listItem2s.get(position);
+        final FeederInfoItem listItem2=listItem2s.get(position);
         holder.textViewFeederName.setText(listItem2.getFeederName());
         holder.textViewFoodItem.setText(listItem2.getFoodItem());
-        holder.textViewTimeOfFeeding.setText(listItem2.getTimeOfFeeding());
+        holder.textViewTimeOfFeeding.setText(listItem2.getFeedingTime());
 
     }
 
