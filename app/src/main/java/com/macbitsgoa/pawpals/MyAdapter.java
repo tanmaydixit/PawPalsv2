@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -43,7 +42,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         final ListItem listItem = listItems.get(position);
         holder.textViewdogName.setText(listItem.getDogName());
         holder.textViewdogId.setText(listItem.getDogID());
-        holder.textViewlastFedTime.setText(listItem.getLastFedTime());
+        holder.textViewlastFedTime.setText("Last feed :"+listItem.getLastFedTime());
         Picasso.get().load(listItem.getDogImage()).into(holder.imageViewdogImage);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {

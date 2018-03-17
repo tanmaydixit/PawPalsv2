@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TimePicker;
@@ -24,7 +25,7 @@ import java.util.Calendar;
 public class AddFeedActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText edtName, edtDogId, edtFeed, edtFeedTime;
-    ImageButton btnSubmit;
+    Button btnSubmit;
     DatabaseReference reference;
     Feed feed;
     FeedIds feedIds = new FeedIds();

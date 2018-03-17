@@ -4,99 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.macbitsgoa.pawpals.AddFeedActivity"
     android:orientation="vertical"
-    >
+    tools:context="com.macbitsgoa.pawpals.AddFeedActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:padding="3dp"
+        android:text="Gave something to your Pawpal, let us know."
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:cardBackgroundColor="@color/cardview_shadow_end_color"
-        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
+                android:fontFamily="cursive"
+                android:padding="3dp"
                 android:text="Name:"
                 android:textColor="#000000"
-                android:fontFamily="cursive"
-                android:textSize="30sp"/>
+                android:textSize="24sp" />
+
             <EditText
                 android:id="@+id/EdtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
                 android:fontFamily="georgia"
-                android:textSize="20sp"/>
+                android:inputType="text"
+                android:minHeight="35dp"
+                android:padding="3dp"
+                android:textSize="24sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:cardBackgroundColor="@color/cardview_shadow_end_color"
-        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
+                android:fontFamily="cursive"
+                android:padding="3dp"
                 android:text="Dog ID:"
                 android:textColor="#000000"
-                android:fontFamily="cursive"
-                android:textSize="30sp"/>
+                android:textSize="24sp" />
+
             <EditText
                 android:id="@+id/EdtDogId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
                 android:fontFamily="serif"
-                android:textSize="20sp"
-                android:inputType="textAutoComplete"/>
+                android:inputType="text"
+                android:padding="3dp"
+                android:textSize="24sp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:cardBackgroundColor="@color/cardview_shadow_end_color"
-        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
-                android:text="Feed:"
-                android:textColor="#000000"
                 android:fontFamily="cursive"
-                android:textSize="30sp"/>
+                android:padding="3dp"
+                android:text="Food:"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+
             <EditText
                 android:id="@+id/EdtFeed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
                 android:fontFamily="georgia"
-                android:textSize="20sp"/>
+                android:inputType="text"
+                android:padding="3dp"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
@@ -104,55 +119,46 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         app:cardBackgroundColor="@color/cardview_shadow_end_color"
-        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow"
-        android:layout_margin="10dp">
+        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
+                android:fontFamily="cursive"
+                android:padding="3dp"
                 android:text="Feed Time:"
                 android:textColor="#000000"
-                android:fontFamily="cursive"
-                android:textSize="30sp"/>
+                android:textSize="24sp" />
+
             <EditText
                 android:id="@+id/EdtFeedTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="35dp"
-                android:paddingStart="3dp"
-                android:fontFamily="georgia"
-                android:textSize="20sp"
-                android:inputType="none"
                 android:focusable="false"
-                />
+                android:fontFamily="georgia"
+                android:inputType="none"
+                android:padding="3dp"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
-    <!--android.support.v7.widget.CardView
+    <Button
+        android:id="@+id/BtnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/cardview_shadow_end_color"
-        app:cardCornerRadius="@dimen/cardview_compat_inset_shadow"
-        android:layout_margin="10dp"
-        android:layout_gravity="end"/-->
+        android:layout_marginStart="10dp"
+        android:contentDescription="Send"
+        android:fontFamily="georgia"
 
-    <ImageButton
-                android:id="@+id/BtnSubmit"
-                android:contentDescription="Send"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="20dp"
-                android:layout_gravity="end"
-                android:background="@drawable/ic_menu_send"
-
-                android:text="Submit" />
+        android:text="Submit" />
 
 
 </LinearLayout>
