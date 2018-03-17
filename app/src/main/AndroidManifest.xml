@@ -20,7 +20,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".FeedHistoryActivity" />
-        <activity android:name=".AddFeedActivity"></activity>
+        <activity android:name=".AddFeedActivity" />
+        <activity
+            android:name=".AboutMAC"
+            android:label="@string/title_activity_about_mac"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EmergencyContactsActivity"
+            android:label="@string/title_activity_emergency_contacts"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
