@@ -43,7 +43,7 @@ public class FeedHistoryActivity extends AppCompatActivity {
 
         textViewSpDogName.setText(transferredName);
         textViewSpDogId.setText(transferredId);
-        Picasso.get().load(transferredImage).into(imageViewSpDogImage);
+        Picasso.get().load(transferredImage).transform(new CircleTransform()).into(imageViewSpDogImage);
 
         recyclerView2 = (RecyclerView) findViewById(R.id.recyclerview2);
         recyclerView2.setHasFixedSize(true);

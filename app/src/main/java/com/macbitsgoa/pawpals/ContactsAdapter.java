@@ -4,19 +4,17 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
-/**
- * Created by admin on 16-Mar-18.
- */
+/*
+Created by admin on 16-Mar-18.
+*/
 
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsViewHolder> implements ValueEventListener{
 
@@ -28,13 +26,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsViewHolder> im
         reference = FirebaseDatabase.getInstance().getReference().child("contacts");
         reference.addValueEventListener(this);
     }
-
     @NonNull
     @Override
     public ContactsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         return new ContactsViewHolder(layoutInflater.inflate(R.layout.contacts_layout,parent,false));
-
     }
 
     @Override
@@ -44,7 +40,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsViewHolder> im
         holder.designation.setText(contacts.get(position).getDesignation());
         holder.email.setText(contacts.get(position).getEmail());
         holder.phoneNo.setText(contacts.get(position).getPhoneNo());
-        Picasso.get().load(contacts.get(position).getPhotoUrl()).into(holder.contactPhoto);
+        Picasso.get().load(contacts.get(position).getPhotoUrl()).transform(new CircleTransform()).into(holder.contactPhoto);
 
     }
 
