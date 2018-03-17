@@ -20,11 +20,17 @@
             android:layout_weight="40"/>
 
         <TextView
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp"
             android:id="@+id/spName"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="30"/>
         <TextView
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="30dp"
             android:id="@+id/spId"
             android:layout_width="0dp"
             android:layout_height="match_parent"

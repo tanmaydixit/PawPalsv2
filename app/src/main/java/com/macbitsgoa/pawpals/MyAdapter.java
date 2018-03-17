@@ -40,10 +40,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ListItem listItem = listItems.get(position);
-        holder.textViewdogName.setText(listItem.getDogName());
-        holder.textViewdogId.setText(listItem.getDogID());
-        holder.textViewlastFedTime.setText("Last feed :"+listItem.getLastFedTime());
-        Picasso.get().load(listItem.getDogImage()).into(holder.imageViewdogImage);
+        holder.textViewdogName.setText("Name:"+listItem.getDogName());
+        holder.textViewdogId.setText("ID:"+listItem.getDogID());
+        holder.textViewlastFedTime.setText("Last fed :"+listItem.getLastFedTime()+"hrs");
+        Picasso.get().load(listItem.getDogImage()).transform(new CircleTransform()).into(holder.imageViewdogImage);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override

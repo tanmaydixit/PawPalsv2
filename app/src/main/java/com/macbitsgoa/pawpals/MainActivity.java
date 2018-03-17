@@ -14,16 +14,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static android.content.Intent.ACTION_SEND;
 import static android.content.Intent.EXTRA_TEXT;
 
@@ -53,8 +50,6 @@ public class MainActivity extends AppCompatActivity
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     dogIdtemp = child.child("dogId").getValue(String.class);
                     dogNametemp = child.child("dogName").getValue(String.class);
-
-
                     for (DataSnapshot subchild : child.child("feed").getChildren()) {
                         lastFedTimetemp = subchild.child("dateTime").getValue(String.class);
                     }
