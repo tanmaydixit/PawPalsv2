@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
                     listItems.add(listItem);
                 }
 
-                adapter=new MyAdapter(listItems,this);
+                adapter=new MyAdapter(listItems,MainActivity.this);
                 recyclerView.setAdapter(adapter);
                 }
             @Override

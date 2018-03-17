@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.macbitsgoa.pawpals.FeedHistoryActivity">
+    tools:context="com.macbitsgoa.pawpals.FeedHistoryActivity"
+    android:orientation="vertical"
+    android:weightSum="100">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/spImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40"/>
+
+        <TextView
+            android:id="@+id/spName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30"/>
+        <TextView
+            android:id="@+id/spId"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="30"
+            />
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="80"/>
+</LinearLayout>
