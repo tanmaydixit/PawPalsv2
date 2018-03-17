@@ -22,7 +22,8 @@ public class AboutMAC extends AppCompatActivity implements View.OnClickListener 
 
     public static String ABOUT_US_FACEBOOK_URL = "https://www.facebook.com/MACBITSGoa";
     public static String ABOUT_US_FACEBOOK_PAGE_ID = "MACBITSGoa";
-    ImageButton fb,playStore;
+    ImageButton fb, playStore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +36,8 @@ public class AboutMAC extends AppCompatActivity implements View.OnClickListener 
 
         Window window = this.getWindow();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // clear FLAG_TRANSLUCENT_STATUS flag
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
+        // clear FLAG_TRANSLUCENT_STATUS flag
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -51,6 +50,7 @@ public class AboutMAC extends AppCompatActivity implements View.OnClickListener 
         playStore.setOnClickListener(this);
 
     }
+
     //method to get the right URL to use in the intent
     public String getFacebookPageURL(final Context context) {
         PackageManager packageManager = context.getPackageManager();

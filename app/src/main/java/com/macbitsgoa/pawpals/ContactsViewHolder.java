@@ -12,7 +12,8 @@ import android.widget.TextView;
 public class ContactsViewHolder extends RecyclerView.ViewHolder {
 
     ImageView contactPhoto;
-    TextView name,designation,phoneNo,email;
+    TextView name, designation, phoneNo, email;
+
     public ContactsViewHolder(View itemView) {
         super(itemView);
         contactPhoto = itemView.findViewById(R.id.contacts_photo);

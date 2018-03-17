@@ -12,7 +12,7 @@ public class Contacts {
     private String email;
     private String designation;
 
-    public Contacts(String name,String photoUrl,String phoneNo,String email,String designation){
+    public Contacts(String name, String photoUrl, String phoneNo, String email, String designation) {
 
         this.name = name;
         this.photoUrl = photoUrl;

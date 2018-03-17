@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsViewHolder> implements ValueEventListener{
 
     private DatabaseReference reference;
-    ArrayList<Contacts> contacts = new ArrayList<>();
+    private ArrayList<Contacts> contacts = new ArrayList<>();
 
     public ContactsAdapter(){
         contacts = new ArrayList<>();

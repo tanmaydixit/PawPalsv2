@@ -11,38 +11,37 @@ public class Feed {
     private String dateTime;
     private String food;
 
-    public String getDogId(){
+    public String getDogId() {
         return dogId;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getDateTime(){
+    public String getDateTime() {
         return dateTime;
     }
 
-    public String getFood(){
+    public String getFood() {
         return food;
     }
 
-    public void setDogId(String dogId){
+    public void setDogId(String dogId) {
         this.dogId = dogId;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setDateTime(String dateTime){
+    public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
     }
 
-    public void setFood(String food){
+    public void setFood(String food) {
         this.food = food;
     }
-
 
 
 }

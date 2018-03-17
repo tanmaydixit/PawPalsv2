@@ -21,9 +21,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class AddFeedActivity extends AppCompatActivity implements View.OnClickListener{
+public class AddFeedActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText edtName,edtDogId,edtFeed,edtFeedTime;
+    EditText edtName, edtDogId, edtFeed, edtFeedTime;
     ImageButton btnSubmit;
     DatabaseReference reference;
     Feed feed;
@@ -46,7 +46,7 @@ public class AddFeedActivity extends AppCompatActivity implements View.OnClickLi
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot c: dataSnapshot.getChildren()){
+                for (DataSnapshot c : dataSnapshot.getChildren()) {
 //                    int i=1;
 //                    Toast.makeText(AddFeedActivity.this,"OuterId about to be set" + i,Toast.LENGTH_SHORT).show();
                     feedIds.outId.add(c.getKey());
@@ -56,6 +56,7 @@ public class AddFeedActivity extends AppCompatActivity implements View.OnClickLi
 //                    Log.e("Err5","DogId retrieved ");
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -69,7 +70,8 @@ public class AddFeedActivity extends AppCompatActivity implements View.OnClickLi
         setTimePickerDialog();
 
     }
-    private void setTimePickerDialog(){
+
+    private void setTimePickerDialog() {
 
         edtFeedTime.setKeyListener(null);
         Calendar c = Calendar.getInstance();
@@ -85,52 +87,51 @@ public class AddFeedActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         edtFeedTime.setText(
-                                new DecimalFormat("00").format(Day) +"-"+new DecimalFormat("00").format(Month)+"-"
-                                        +new DecimalFormat("0000").format(Year)
-                                +" "+new DecimalFormat("00").format(Hour)+":"+new DecimalFormat("00").format(Minute)
-                                        +":"+"00");
+                                new DecimalFormat("00").format(Day) + "-" + new DecimalFormat("00").format(Month) + "-"
+                                        + new DecimalFormat("0000").format(Year)
+                                        + " " + new DecimalFormat("00").format(Hour) + ":" + new DecimalFormat("00").format(Minute)
+                                        + ":" + "00");
 
                     }
-                },Hour,Minute,true);
+                }, Hour, Minute, true);
                 tpd.setTitle("Select Time");
                 tpd.show();
             }
         });
 
     }
-    private int setFeed(){
+
+    private int setFeed() {
         try {
             feed.setDogId(edtDogId.getText().toString());
             feed.setName(edtName.getText().toString());
             feed.setDateTime(edtFeedTime.getText().toString());
             feed.setFood(edtFeed.getText().toString());
-        }
-        catch (NullPointerException e){
-            Toast.makeText(AddFeedActivity.this,"Please enter all values",Toast.LENGTH_SHORT).show();
-            Log.e("NPE","setFeed not working");
+        } catch (NullPointerException e) {
+            Toast.makeText(AddFeedActivity.this, "Please enter all values", Toast.LENGTH_SHORT).show();
+            Log.e("NPE", "setFeed not working");
             return 1;
         }
-        if(feed.getName().length()==0||feed.getDateTime().length()==0||feed.getFood().length()==0||feed.getDogId().length()==0){
-            Toast.makeText(AddFeedActivity.this,"Please enter all values",Toast.LENGTH_SHORT).show();
+        if (feed.getName().length() == 0 || feed.getDateTime().length() == 0 || feed.getFood().length() == 0 || feed.getDogId().length() == 0) {
+            Toast.makeText(AddFeedActivity.this, "Please enter all values", Toast.LENGTH_SHORT).show();
             return 1;
         }
         return 0;
     }
 
-    public void BtnSubmit(){
+    public void BtnSubmit() {
 
         int dogIdIndex = feedIds.dogId.indexOf(feed.getDogId());
-        if(dogIdIndex==-1) {
-            Toast.makeText(AddFeedActivity.this,"Dog ID Invalid",Toast.LENGTH_SHORT).show();
+        if (dogIdIndex == -1) {
+            Toast.makeText(AddFeedActivity.this, "Dog ID Invalid", Toast.LENGTH_SHORT).show();
             return;
+        } else {
+            String id = reference.child(feedIds.outId.get(dogIdIndex)).child("feed").push().getKey();
+            reference.child(feedIds.outId.get(dogIdIndex)).child("feed").child(id).child("dateTime").setValue(feed.getDateTime());
+            reference.child(feedIds.outId.get(dogIdIndex)).child("feed").child(id).child("name").setValue(feed.getName());
+            reference.child(feedIds.outId.get(dogIdIndex)).child("feed").child(id).child("food").setValue(feed.getFood());
         }
-        else{
-                String id = reference.child(feedIds.outId.get(dogIdIndex)).child("feed").push().getKey();
-                reference.child(feedIds.outId.get(dogIdIndex)).child("feed").child(id).child("dateTime").setValue(feed.getDateTime());
-                reference.child(feedIds.outId.get(dogIdIndex)).child("feed").child(id).child("name").setValue(feed.getName());
-                reference.child(feedIds.outId.get(dogIdIndex)).child("feed").child(id).child("food").setValue(feed.getFood());
-            }
-        Toast.makeText(AddFeedActivity.this,"Updated Feed History",Toast.LENGTH_SHORT).show();
+        Toast.makeText(AddFeedActivity.this, "Updated Feed History", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
 
@@ -138,8 +139,8 @@ public class AddFeedActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
 
-        if(v.getId()== R.id.BtnSubmit){
-            if(setFeed()!=1)
+        if (v.getId() == R.id.BtnSubmit) {
+            if (setFeed() != 1)
                 BtnSubmit();
         }
 
@@ -163,8 +164,8 @@ public class AddFeedActivity extends AppCompatActivity implements View.OnClickLi
 //    }
 }
 
-class FeedIds{
+class FeedIds {
 
-            ArrayList<String> outId = new ArrayList<>();
-            ArrayList<String> dogId = new ArrayList<>();
-        }
+    ArrayList<String> outId = new ArrayList<>();
+    ArrayList<String> dogId = new ArrayList<>();
+}

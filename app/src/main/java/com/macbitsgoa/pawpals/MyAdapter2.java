@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
     private List<FeederInfoItem> listItem2s;
     private Context context;
 
-    public MyAdapter2(List<FeederInfoItem> listItem2s, Context context) {
+    MyAdapter2(List<FeederInfoItem> listItem2s, Context context) {
         this.listItem2s = listItem2s;
         this.context = context;
     }
@@ -45,11 +44,11 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.ViewHolder> {
         return listItem2s.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewFeederName;
-        public TextView textViewFoodItem;
-        public TextView textViewTimeOfFeeding;
-        public ViewHolder(View itemView) {
+    class ViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewFeederName;
+        TextView textViewFoodItem;
+        TextView textViewTimeOfFeeding;
+        ViewHolder(View itemView) {
             super(itemView);
             textViewFeederName=(TextView) itemView.findViewById(R.id.feedername);
             textViewFoodItem=(TextView) itemView.findViewById(R.id.fooditem);

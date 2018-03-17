@@ -25,7 +25,7 @@ public class EmergencyContactsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Emergency Contacts");
-        recyclerView  = findViewById(R.id.emergency_contacts_recview);
+        recyclerView = findViewById(R.id.emergency_contacts_recview);
         adapter = new ContactsAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
@@ -42,11 +42,6 @@ public class EmergencyContactsActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
             window.setNavigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         }
-
-
-
-
-
 
 
     }
