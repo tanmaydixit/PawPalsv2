@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text"
+        android:text="@string/contributor_names"
         android:visibility="gone"/>
     <TextView
         android:layout_width="wrap_content"
@@ -77,6 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:textSize="24dp"
+        android:text="@string/contributor_names" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

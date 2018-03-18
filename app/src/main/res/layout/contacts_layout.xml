@@ -15,7 +15,7 @@
         android:contentDescription="photo_of_contacts"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@mipmap/ic_launcher_paws_round"/>
 
     <TextView
         android:id="@+id/contacts_name"
@@ -24,7 +24,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginTop="24dp"
         android:fontFamily="sans-serif"
-        android:text="Rajath Reghunath"
+        android:text="Name"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textSize="24sp"
@@ -54,7 +54,7 @@
         android:layout_marginEnd="8dp"
         android:autoLink="phone"
         android:fontFamily="sans-serif"
-        android:text="+919656542056"
+        android:text="+916666666666"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColorLink="@color/colorPrimaryDark"
@@ -72,7 +72,7 @@
         android:layout_marginStart="8dp"
         android:autoLink="all"
         android:fontFamily="sans-serif"
-        android:text="rrgodhorus@gmail.com"
+        android:text="randomguy@gmail.com"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Caption"
         android:textColorLink="@color/colorPrimaryDark"
