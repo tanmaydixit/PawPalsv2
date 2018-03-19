@@ -54,6 +54,7 @@ public class FeedHistoryActivity extends AppCompatActivity {
         databaseReference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                feederInfoItemList = new ArrayList<>();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String dogIdtemp = child.child("dogId").getValue(String.class);
                     if (Objects.equals(dogIdtemp, transferredId)) {

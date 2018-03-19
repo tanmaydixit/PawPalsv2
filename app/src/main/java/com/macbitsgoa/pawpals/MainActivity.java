@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                listItems = new ArrayList<>();
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     dogIdtemp = child.child("dogId").getValue(String.class);
                     dogNametemp = child.child("dogName").getValue(String.class);
@@ -143,7 +144,9 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_feed_dog) {
 
+            //listItems = new ArrayList<>();
             startActivity(new Intent(MainActivity.this, AddFeedActivity.class));
+            //finish();
 
         } else if (id == R.id.nav_report_emergency) {
             //TODO Make activity Report Emergency
